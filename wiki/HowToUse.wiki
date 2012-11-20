@@ -1,0 +1,47 @@
+#labels AutoHotKey,Python,RSA
+#How to use it
+
+= Introduction =
+
+Follow these steps to get the RSA Token on Windows Command Prompt
+
+
+= RSA Token on Windows Command Prompt =
+
+ # Download the Source .ahk
+ # Open a Command Prompt
+ # Enter these commands:
+{{{
+C:\> rem Comment: XYZ is a folder that has the .ahk file you just downloaded and also the AutoHotkey.exe
+C:\> cd XYZ
+C:\XYZ>AutoHotkey.exe RSATokenAutomation.ahk
+
+C:\XYZ>30958787
+C:\> rem Comment: The above number is the passcode
+C:\> rem Comment: The above script will only work if you don't do any mouse /keyboard movements
+}}}
+
+= RSA Token on Python =
+ # Make a .py script and use subprocess module.
+ # For example:
+{{{
+'''
+Created on Nov 17, 2012
+
+@author: ambarik
+'''
+
+import subprocess
+
+def get_rsa_token():
+    print "Getting RSA Token"
+    return subprocess.Popen("./AutoHotkey.exe RSATokenAutomation.ahk", shell=True, stdout=subprocess.PIPE, cwd='/cygdrive/c/Barik/Softwares/AutoHotKey/RSA Token CLI Example').communicate()[0].strip()
+}}}
+
+
+= System Requirements =
+ # OS: Windows 7
+ # RSA SecureID 4.1.1
+ # RSA SecureID present at "C:\Program Files (x86)\RSA SecurID Software Token\SecurID.exe"
+ # AutoHotkey.exe from autohotkey.com
+ # Python 2.6 from www.python.org
